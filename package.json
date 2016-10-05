@@ -1,0 +1,23 @@
+{
+  "name": "quien_es_ese_pokemon",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "pokemon-gif": "^1.0.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mengasis/QuienEsEsePokemon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mengasis/QuienEsEsePokemon/issues"
+  },
+  "homepage": "https://github.com/mengasis/QuienEsEsePokemon#readme"
+}
