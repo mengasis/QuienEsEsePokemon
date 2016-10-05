@@ -1,14 +1,28 @@
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokemon</title>
 
-
-<script type="text/javascript">
-$( document ).ready(function() {
-console.log( "success" );
-
-	var pokemon = $.getJSON( "pokemon_json.json", function() {
-	  console.log( "success" );
-	})
-});
-</script>
+</head>
+<body>
 <img id="pokemon" src=""/>
-hosl
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+  <script type="text/javascript">
+	$( document ).ready(function() {
+
+		var pokemon = $.getJSON( "pokemon_json", function(pokemon) {
+		 
+		  $.each( pokemon, function( key, value ) {
+		   console.log( value.nombre);
+			});
+		});
+
+	});
+	</script>
+</body>
+</html>
+
+
