@@ -37,12 +37,12 @@
 			if(cantidad>1){
 				$("#pregunta").html(preguntas[numero_pregunta].pregunta);
 				numero_pregunta = numero_pregunta +1;
-			$("#respuesta").html("<input type='text' name='filtro' id='filtro'><a href='javascript:QuienEsEsePokemon("+ numero_pregunta+ ");'>HOLA</a>");
+			$("#respuesta").html("<input type='text' name='filtro' id='filtro'><a href='javascript:QuienEsEsePokemon("+ numero_pregunta+ ");'>Siguiente</a>");
 			}
 		}else{
 			$("#pregunta").html("¿Que tipo de pokemon es?");
 				numero_pregunta = numero_pregunta +1;
-			$("#respuesta").html("<input type='text' name='filtro' id='filtro'><a href='javascript:QuienEsEsePokemon(1);'>HOLA</a>");
+			$("#respuesta").html("<input type='text' name='filtro' id='filtro'><a href='javascript:QuienEsEsePokemon(1);'>Siguiente</a>");
 		}
 	}
 
