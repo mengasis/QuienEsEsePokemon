@@ -31,10 +31,10 @@
 				console.log(pokemones);
 				cantidad = pokemones.length;
 				if(cantidad == 1){
-					alert("pokemon encontrado es:" + pokemones[0].nombre);
+					//alert("pokemon encontrado es:" + pokemones[0].nombre);
 					$("#respuesta").html("");
 					$("#pregunta").html("");
-					$("#resultado").html("<img src='http://www.pokestadium.com/sprites/xy/" + pokemones[0].nombre.toLowerCase() + ".gif' />");
+					$("#resultado").html("<h1>Tu Pokemon es "+ pokemones[0].nombre.toUpperCase() + " <h1><br><img src='http://www.pokestadium.com/sprites/xy/" + pokemones[0].nombre.toLowerCase() + ".gif' />");
 				}
 				if(cantidad == 0){
 					$("#respuesta").html("");
