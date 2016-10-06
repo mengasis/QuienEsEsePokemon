@@ -34,7 +34,7 @@
 					//alert("pokemon encontrado es:" + pokemones[0].nombre);
 					$("#respuesta").html("");
 					$("#pregunta").html("");
-					$("#resultado").html("<h1>Tu Pokemon es "+ pokemones[0].nombre.toUpperCase() + " <h1><br><img src='http://www.pokestadium.com/sprites/xy/" + pokemones[0].nombre.toLowerCase() + ".gif' />");
+					$("#resultado").html("<h1>Tu Pokemon es "+ pokemones[0].nombre.toUpperCase() + " <h1><br><img src='http://www.pokestadium.com/sprites/xy/" + pokemones[0].nombre.toLowerCase() + ".gif' /><br> <input type='button' value='Jugar de Nuevo' onClick'window.location.reload()'>");
 				}
 				if(cantidad == 0){
 					$("#respuesta").html("");
