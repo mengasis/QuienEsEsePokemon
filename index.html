@@ -55,14 +55,14 @@
 			var objeto = new Object();
 			var auxiliar;
 			if(numero_pregunta == 1){
-				if(pokemones[i].tipo1 == filtro){
+				if(pokemones[i].tipo1.toUpperCase() == filtro.toUpperCase()){
 					auxiliar = pokemones[i];
 					existe = 1;
 					
 				}
 			}
 			if(numero_pregunta == 2){
-				if(pokemones[i].evoluciona == filtro){
+				if(pokemones[i].evoluciona.toUpperCase() == filtro.toUpperCase()){
 
 					auxiliar = pokemones[i];
 					existe = 1;
@@ -70,7 +70,7 @@
 				}
 			}
 			if(numero_pregunta == 3){
-				if(pokemones[i].animal == filtro){
+				if(pokemones[i].animal.toUpperCase() == filtro.toUpperCase()){
 
 					auxiliar = pokemones[i];
 					existe = 1;
@@ -78,7 +78,7 @@
 				}
 			}
 			if(numero_pregunta == 4){
-				if(pokemones[i].accion == filtro){
+				if(pokemones[i].accion.toUpperCase() == filtro.toUpperCase()){
 
 					auxiliar = pokemones[i];
 					existe = 1;
@@ -86,7 +86,7 @@
 				}
 			}
 			if(numero_pregunta == 5){
-				if(pokemones[i].habitat == filtro){
+				if(pokemones[i].habitat.toUpperCase() == filtro.toUpperCase()){
 
 					auxiliar = pokemones[i];
 					existe = 1;
@@ -94,7 +94,7 @@
 				}
 			}
 			if(numero_pregunta == 6){
-				if(pokemones[i].evolucionado == filtro){
+				if(pokemones[i].evolucionado.toUpperCase() == filtro.toUpperCase()){
 
 					auxiliar = pokemones[i];
 					existe = 1;
@@ -102,7 +102,7 @@
 				}
 			}
 			if(numero_pregunta == 7){
-				if(pokemones[i].tipo_evo == filtro){
+				if(pokemones[i].tipo_evo.toUpperCase() == filtro.toUpperCase()){
 
 					auxiliar = pokemones[i];
 					existe = 1;
@@ -110,7 +110,7 @@
 				}
 			}
 			if(numero_pregunta == 8){
-				if(pokemones[i].raro == filtro){
+				if(pokemones[i].raro.toUpperCase() == filtro.toUpperCase()){
 
 					auxiliar = pokemones[i];
 					existe = 1;
@@ -118,7 +118,7 @@
 				}
 			}
 			if(numero_pregunta == 9){
-				if(pokemones[i].tipo2 == filtro){
+				if(pokemones[i].tipo2.toUpperCase() == filtro.toUpperCase()){
 
 					auxiliar = pokemones[i];
 					existe = 1;
@@ -126,7 +126,7 @@
 				}
 			}
 			if(numero_pregunta == 10){
-				if(pokemones[i].sexo == filtro){
+				if(pokemones[i].sexo.toUpperCase() == filtro.toUpperCase()){
 
 					auxiliar = pokemones[i];
 					existe = 1;
