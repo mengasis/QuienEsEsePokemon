@@ -6,21 +6,157 @@
 
 </head>
 <body>
-<img id="pokemon" src=""/>
+<div id="pregunta"></div>
+<div id="respuesta"></div>
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 
   <script type="text/javascript">
+	
+
+	var pokemones = $.ajax({type: "GET", url: "pokemon_json.js", async: false}).responseText;
+	var pokemones = jQuery.parseJSON( pokemones );
+	var preguntas = $.ajax({type: "GET", url: "preguntas.js", async: false}).responseText;
+	var preguntas = jQuery.parseJSON( preguntas );
 	$( document ).ready(function() {
-
-		var pokemon = $.getJSON( "pokemon_json", function(pokemon) {
-		 
-		  $.each( pokemon, function( key, value ) {
-		   console.log( value.nombre);
-			});
-		});
-
+	QuienEsEsePokemon(0)
 	});
+
+	function QuienEsEsePokemon(numero_pregunta){
+		if(numero_pregunta != 0){
+			filtro = $("#filtro").val();
+			pokemones = Filtro(pokemones,filtro ,numero_pregunta);
+			console.log(pokemones);
+			cantidad = pokemones.length;
+			if(cantidad == 1){
+				alert("pokemon encontrado es:" + pokemones[0].nombre);
+			}
+			if(cantidad == 0){
+				alert("pokemon no encontrado");
+			}
+			if(cantidad>1){
+				$("#pregunta").html(preguntas[numero_pregunta].pregunta);
+				numero_pregunta = numero_pregunta +1;
+			$("#respuesta").html("<input type='text' name='filtro' id='filtro'><a href='javascript:QuienEsEsePokemon("+ numero_pregunta+ ");'>HOLA</a>");
+			}
+		}else{
+			$("#pregunta").html("¿Que tipo de pokemon es?");
+				numero_pregunta = numero_pregunta +1;
+			$("#respuesta").html("<input type='text' name='filtro' id='filtro'><a href='javascript:QuienEsEsePokemon(1);'>HOLA</a>");
+		}
+	}
+
+	function Filtro(pokemones,filtro, numero_pregunta){
+		var nuevos = new Array()
+		for(var i=0; i<pokemones.length; i++){
+			
+			var existe = 0;
+
+			var objeto = new Object();
+			var auxiliar;
+			if(numero_pregunta == 1){
+				if(pokemones[i].tipo1 == filtro){
+					auxiliar = pokemones[i];
+					existe = 1;
+					
+				}
+			}
+			if(numero_pregunta == 2){
+				if(pokemones[i].evoluciona == filtro){
+
+					auxiliar = pokemones[i];
+					existe = 1;
+					
+				}
+			}
+			if(numero_pregunta == 3){
+				if(pokemones[i].animal == filtro){
+
+					auxiliar = pokemones[i];
+					existe = 1;
+					
+				}
+			}
+			if(numero_pregunta == 4){
+				if(pokemones[i].accion == filtro){
+
+					auxiliar = pokemones[i];
+					existe = 1;
+					
+				}
+			}
+			if(numero_pregunta == 5){
+				if(pokemones[i].habitat == filtro){
+
+					auxiliar = pokemones[i];
+					existe = 1;
+					
+				}
+			}
+			if(numero_pregunta == 6){
+				if(pokemones[i].evolucionado == filtro){
+
+					auxiliar = pokemones[i];
+					existe = 1;
+					
+				}
+			}
+			if(numero_pregunta == 7){
+				if(pokemones[i].tipo_evo == filtro){
+
+					auxiliar = pokemones[i];
+					existe = 1;
+					
+				}
+			}
+			if(numero_pregunta == 8){
+				if(pokemones[i].raro == filtro){
+
+					auxiliar = pokemones[i];
+					existe = 1;
+					
+				}
+			}
+			if(numero_pregunta == 9){
+				if(pokemones[i].tipo2 == filtro){
+
+					auxiliar = pokemones[i];
+					existe = 1;
+					
+				}
+			}
+			if(numero_pregunta == 10){
+				if(pokemones[i].sexo == filtro){
+
+					auxiliar = pokemones[i];
+					existe = 1;
+					
+				}
+			}
+
+
+			if(existe == 1){
+				objeto.numero = auxiliar.numero;
+				objeto.nombre = auxiliar.nombre;
+				objeto.tipo1 = auxiliar.tipo1;
+				objeto.tipo2 = auxiliar.tipo2;
+				objeto.evoluciona = auxiliar.evoluciona;
+				objeto.animal = auxiliar.animal;
+				objeto.accion = auxiliar.accion;
+				objeto.sexo = auxiliar.sexo;
+				objeto.raro = auxiliar.raro;
+				objeto.habitat = auxiliar.habitat;
+				objeto.cant_evo = auxiliar.cant_evo;
+				objeto.evolucionado = auxiliar.evolucionado;
+				objeto.tipo_evo = auxiliar.tipo_evo;
+				nuevos.push(objeto);
+
+			}
+			
+		}
+
+		return nuevos;
+	}
 	</script>
 </body>
 </html>
