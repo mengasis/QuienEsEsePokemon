@@ -1,5 +1,7 @@
 const pokemonGif = require('pokemon-gif');
 
-function getPokemonGif() {
-	return pokemonGif(id);
-}
+module.exports = function(id, callback){
+
+  callback(pokemonGif(id));
+
+};

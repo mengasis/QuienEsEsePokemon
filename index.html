@@ -8,6 +8,7 @@
 <body>
 <div id="pregunta"></div>
 <div id="respuesta"></div>
+<div id="resultado"></div>
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 
@@ -24,21 +25,37 @@
 
 	function QuienEsEsePokemon(numero_pregunta){
 		if(numero_pregunta != 0){
-			filtro = $("#filtro").val();
-			pokemones = Filtro(pokemones,filtro ,numero_pregunta);
-			console.log(pokemones);
-			cantidad = pokemones.length;
-			if(cantidad == 1){
-				alert("pokemon encontrado es:" + pokemones[0].nombre);
+			if(numero_pregunta<11){
+				filtro = $("#filtro").val();
+				pokemones = Filtro(pokemones,filtro ,numero_pregunta);
+				console.log(pokemones);
+				cantidad = pokemones.length;
+				if(cantidad == 1){
+					alert("pokemon encontrado es:" + pokemones[0].nombre);
+					$("#respuesta").html("");
+					$("#pregunta").html("");
+					$("#resultado").html("<img src='http://www.pokestadium.com/sprites/xy/" + pokemones[0].nombre.toLowerCase() + ".gif' />");
+				}
+				if(cantidad == 0){
+					$("#respuesta").html("");
+					$("#pregunta").html("");
+					alert("pokemon no encontrado");
+					$("#resultado").html('<input type="button" value="Jugar de Nuevo" onClick="window.location.reload()">');
+				}
+				if(cantidad>1){
+					$("#pregunta").html(preguntas[numero_pregunta].pregunta);
+					numero_pregunta = numero_pregunta +1;
+				$("#respuesta").html("<input type='text' name='filtro' id='filtro'><a href='javascript:QuienEsEsePokemon("+ numero_pregunta+ ");'>Siguiente</a>");
+				}
+
+			}else{
+				$("#respuesta").html("");
+					$("#pregunta").html("");
+					alert("pokemon no encontrado");
+					$("#resultado").html('<input type="button" value="Refresh Page" onClick="window.location.reload()">');
+
 			}
-			if(cantidad == 0){
-				alert("pokemon no encontrado");
-			}
-			if(cantidad>1){
-				$("#pregunta").html(preguntas[numero_pregunta].pregunta);
-				numero_pregunta = numero_pregunta +1;
-			$("#respuesta").html("<input type='text' name='filtro' id='filtro'><a href='javascript:QuienEsEsePokemon("+ numero_pregunta+ ");'>Siguiente</a>");
-			}
+			
 		}else{
 			$("#pregunta").html("¿Que tipo de pokemon es?");
 				numero_pregunta = numero_pregunta +1;
