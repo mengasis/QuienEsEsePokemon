@@ -6,11 +6,25 @@
 
 </head>
 <body>
-<div id="pregunta"></div>
-<div id="respuesta"></div>
-<div id="resultado"></div>
+ <div class="container">
+ 	<div class="row">
+    <form action="#" id="myForm">
+        <div id="pregunta"></div>
+		<div id="respuesta"></div>
+		<div id="resultado"></div>
+	</form>
+	</div>
+ </div>
 
-  <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script> 
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
 
   <script type="text/javascript">
 	
@@ -19,47 +33,60 @@
 	var pokemones = jQuery.parseJSON( pokemones );
 	var preguntas = $.ajax({type: "GET", url: "preguntas.js", async: false}).responseText;
 	var preguntas = jQuery.parseJSON( preguntas );
-	$( document ).ready(function() {
-	QuienEsEsePokemon(0)
-	});
+
 
 	function QuienEsEsePokemon(numero_pregunta){
 		if(numero_pregunta != 0){
 			if(numero_pregunta<11){
-				filtro = $("#filtro").val();
-				pokemones = Filtro(pokemones,filtro ,numero_pregunta);
-				console.log(pokemones);
-				cantidad = pokemones.length;
-				if(cantidad == 1){
-					//alert("pokemon encontrado es:" + pokemones[0].nombre);
-					$("#respuesta").html("");
-					$("#pregunta").html("");
-					$("#resultado").html("<h1>Tu Pokemon es "+ pokemones[0].nombre.toUpperCase() + " <h1><br><img src='http://www.pokestadium.com/sprites/xy/" + pokemones[0].nombre.toLowerCase() + ".gif' /><br> <input type='button' value='Jugar de Nuevo' onClick'window.location.reload()'>");
+				filtro = $('input[name=filtro]:checked', '#myForm').val()
+				console.log(filtro);
+				if(filtro==undefined){
+					alert("Debe elegir una opcion");
+					return false;
 				}
-				if(cantidad == 0){
-					$("#respuesta").html("");
-					$("#pregunta").html("");
-					alert("pokemon no encontrado");
-					$("#resultado").html('<input type="button" value="Jugar de Nuevo" onClick="window.location.reload()">');
-				}
-				if(cantidad>1){
-					$("#pregunta").html(preguntas[numero_pregunta].pregunta);
-					numero_pregunta = numero_pregunta +1;
-				$("#respuesta").html("<input type='text' name='filtro' id='filtro'><a href='javascript:QuienEsEsePokemon("+ numero_pregunta+ ");'>Siguiente</a>");
+				else{
+					pokemones = Filtro(pokemones,filtro ,numero_pregunta);
+					console.log(pokemones);
+					cantidad = pokemones.length;
+					if(cantidad == 1){
+						//alert("pokemon encontrado es:" + pokemones[0].nombre);
+						$("#respuesta").html("");
+						$("#pregunta").html("");
+						$("#resultado").html("<h1><center>Tu Pokémon es "+ pokemones[0].nombre.toUpperCase() + " </center></h1><br><center><img class='responsive-img' src='http://www.pokestadium.com/sprites/xy/" + pokemones[0].nombre.toLowerCase() + ".gif' /></center><br> <button  class='btn waves-effect waves-light right' onClick='window.location.reload()'> Jugar de Nuevo <i class='material-icons right'>send</i></button>");
+						console.log(pokemones[0].numero);
+						if(pokemones[0].numero == 1){
+							var audio = new Audio('audio/bulbasaur.mp3');
+							audio.play();
+						}
+					}
+					if(cantidad == 0){
+						$("#respuesta").html("");
+						$("#pregunta").html("");
+						alert("pokemon no encontrado");
+						$("#resultado").html('<input type="button" class="btn waves-effect waves-light" value="Jugar de Nuevo" onClick="window.location.reload()">');
+					}
+					if(cantidad>1){
+						$("#pregunta").html("<h3>" + preguntas[numero_pregunta].pregunta + "</h3>");
+						var opciones = Opciones(pokemones,numero_pregunta);
+						numero_pregunta = numero_pregunta +1;
+						var opciones = Opciones(pokemones,numero_pregunta);
+						$("#respuesta").html(opciones);
+					}
 				}
 
 			}else{
 				$("#respuesta").html("");
 					$("#pregunta").html("");
 					alert("pokemon no encontrado");
-					$("#resultado").html('<input type="button" value="Refresh Page" onClick="window.location.reload()">');
+					$("#resultado").html('<input type="button" value="Jugar de Nuevo" class="btn waves-effect waves-light" onClick="window.location.reload()">');
 
 			}
 			
 		}else{
-			$("#pregunta").html("¿Que tipo de pokemon es?");
+			$("#pregunta").html("<h3>¿Que tipo de pokemon es?</h3>");
 				numero_pregunta = numero_pregunta +1;
-			$("#respuesta").html("<input type='text' name='filtro' id='filtro'><a href='javascript:QuienEsEsePokemon(1);'>Siguiente</a>");
+				var opciones = Opciones(pokemones,numero_pregunta);
+			$("#respuesta").html(opciones);
 		}
 	}
 
@@ -174,7 +201,81 @@
 
 		return nuevos;
 	}
+
+	function Opciones(poke_opciones ,numero_pregunta){
+		var opciones = new Array()
+		for(var i=0; i<poke_opciones.length; i++){
+			switch(numero_pregunta){
+				case 1:
+					if(opciones.indexOf(poke_opciones[i].tipo1)==-1){
+						opciones.push(poke_opciones[i].tipo1);
+					}
+					break;
+				case 2:
+					if(opciones.indexOf(poke_opciones[i].evoluciona)==-1){
+						opciones.push(poke_opciones[i].evoluciona);
+					}
+					break;
+				case 3:
+					if(opciones.indexOf(poke_opciones[i].animal)==-1){
+						opciones.push(poke_opciones[i].animal);
+					}
+					break;
+				case 4:
+					if(opciones.indexOf(poke_opciones[i].accion)==-1){
+						opciones.push(poke_opciones[i].accion);
+					}
+					break;
+				case 5:
+					if(opciones.indexOf(poke_opciones[i].habitat)==-1){
+						opciones.push(poke_opciones[i].habitat);
+					}
+					break;
+				case 6:
+					if(opciones.indexOf(poke_opciones[i].evolucionado)==-1){
+						opciones.push(poke_opciones[i].evolucionado);
+					}
+					break;
+				case 7:
+					if(opciones.indexOf(poke_opciones[i].tipo_evo)==-1){
+						opciones.push(poke_opciones[i].tipo_evo);
+					}
+					break;
+				case 8:
+					if(opciones.indexOf(poke_opciones[i].raro)==-1){
+						opciones.push(poke_opciones[i].raro);
+					}
+					break;
+				case 9:
+					if(opciones.indexOf(poke_opciones[i].tipo2)==-1){
+						opciones.push(poke_opciones[i].tipo2);
+					}
+					break;
+				case 10:
+					if(opciones.indexOf(poke_opciones[i].sexo)==-1){
+						opciones.push(poke_opciones[i].sexo);
+					}
+					break;
+			}
+
+		}
+		var html = "";
+		for(var i=0; i<opciones.length; i++){
+			html += ' <div class="col s3"><p><input name="filtro" type="radio" value="' + opciones[i] + '" id="' + opciones[i] + '" /><label for="' + opciones[i] + '">' + opciones[i] + '</label><p></div>';
+		}
+		html +=  "<div class='col s12'><button class='btn waves-effect waves-light right' onClick='QuienEsEsePokemon("+ numero_pregunta+ ");'>Siguiente <i class='material-icons right'>send</i></button></div>";
+		return html;
+			
+	}
+
+	$( document ).ready(function() {
+					QuienEsEsePokemon(0);
+
+			});	
+		
 	</script>
+	
+          
 </body>
 </html>
 
