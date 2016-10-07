@@ -1,42 +1,42 @@
 [
   {
     "numero": 1,
-    "pregunta": "Â¿Que tipo de pokemon es?"
+    "pregunta": "¿Que tipo de pokemon es?"
   },
   {
     "numero": 2,
-    "pregunta": "Â¿Tiene Evolucion?"
+    "pregunta": "¿Tiene Evolucion?"
   },
   {
     "numero": 3,
-    "pregunta": "Â¿Se Parece a un Animal?"
+    "pregunta": "¿Se Parece a un Animal?"
   },
   {
     "numero": 4,
-    "pregunta": "Â¿Como se transporta?"
+    "pregunta": "¿Como se transporta?"
   },
   {
     "numero": 5,
-    "pregunta": "Â¿habitat?"
+    "pregunta": "¿En que habitat vive?"
   },
   {
     "numero": 6,
-    "pregunta": "Â¿Ha Evolucionado?"
+    "pregunta": "¿Ha Evolucionado?"
   },
   {
     "numero": 7,
-    "pregunta": "Â¿Tipo de EvoluciÃ³n?"
+    "pregunta": "¿Que tipo de Evolución tiene?"
   },
   {
     "numero": 8,
-    "pregunta": "Â¿Frecuencia?"
+    "pregunta": "¿El pokemons en comun, poco comun o raro?"
   },
   {
     "numero": 9,
-    "pregunta": "Â¿Otro tipo de pokemon?"
+    "pregunta": "¿Tiene un segundo tipo?"
   },
   {
     "numero": 10,
-    "pregunta": "Â¿Sexo?"
+    "pregunta": "¿Que sexo tiene?"
   }
 ]

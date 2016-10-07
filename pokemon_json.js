@@ -54,7 +54,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "poco comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 2,
     "evolucionado": "NO",
     "tipo_evo": "Normal"
@@ -69,7 +69,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "poco comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 1,
     "evolucionado": "SI",
     "tipo_evo": "Normal"
@@ -84,7 +84,7 @@
     "accion": "Vuela",
     "sexo": "Ambos",
     "raro": "poco comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 0,
     "evolucionado": "SI",
     "tipo_evo": "No tiene"
@@ -519,7 +519,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "poco comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 1,
     "evolucionado": "NO",
     "tipo_evo": "Piedra"
@@ -534,7 +534,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "poco comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 0,
     "evolucionado": "SI",
     "tipo_evo": "No tiene"
@@ -834,7 +834,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 1,
     "evolucionado": "NO",
     "tipo_evo": "Normal"
@@ -849,7 +849,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 0,
     "evolucionado": "SI",
     "tipo_evo": "No tiene"
@@ -984,7 +984,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 2,
     "evolucionado": "NO",
     "tipo_evo": "Normal"
@@ -999,7 +999,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 1,
     "evolucionado": "SI",
     "tipo_evo": "Intercambio"
@@ -1014,7 +1014,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 0,
     "evolucionado": "SI",
     "tipo_evo": "No tiene"
@@ -1104,7 +1104,7 @@
     "accion": "Levita",
     "sexo": "Ambos",
     "raro": "comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 2,
     "evolucionado": "NO",
     "tipo_evo": "Normal"
@@ -1119,7 +1119,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 1,
     "evolucionado": "SI",
     "tipo_evo": "Intercambio"
@@ -1134,7 +1134,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 0,
     "evolucionado": "SI",
     "tipo_evo": "No tiene"
@@ -1554,7 +1554,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "poco comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 1,
     "evolucionado": "NO",
     "tipo_evo": "Normal"
@@ -1569,7 +1569,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "poco comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 0,
     "evolucionado": "SI",
     "tipo_evo": "No tiene"
@@ -1884,7 +1884,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "poco comun",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 0,
     "evolucionado": "NO",
     "tipo_evo": "No tiene"
@@ -2124,7 +2124,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "raro",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 0,
     "evolucionado": "NO",
     "tipo_evo": "No tiene"
@@ -2139,7 +2139,7 @@
     "accion": "Camina",
     "sexo": "Ambos",
     "raro": "raro",
-    "habitat": "MontaÃ±a",
+    "habitat": "Montaña",
     "cant_evo": 0,
     "evolucionado": "NO",
     "tipo_evo": "No tiene"
