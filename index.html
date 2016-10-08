@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Pokemon</title>
-
+<style type="text/css">
+	
+  html {
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  }
+     
+</style>
 </head>
 <body>
  <div class="container">
@@ -39,9 +45,10 @@
 		if(numero_pregunta != 0){
 			if(numero_pregunta<11){
 				filtro = $('input[name=filtro]:checked', '#myForm').val()
-				console.log(filtro);
+				//console.log(filtro);
 				if(filtro==undefined){
-					alert("Debe elegir una opcion");
+					//alert("Debe elegir una opcion");
+					Materialize.toast('¡Debe elegir una opcion!', 4000);
 					return false;
 				}
 				else{
@@ -52,38 +59,35 @@
 						//alert("pokemon encontrado es:" + pokemones[0].nombre);
 						$("#respuesta").html("");
 						$("#pregunta").html("");
-						$("#resultado").html("<h1><center>Tu Pokémon es "+ pokemones[0].nombre.toUpperCase() + " </center></h1><br><center><img class='responsive-img' src='http://www.pokestadium.com/sprites/xy/" + pokemones[0].nombre.toLowerCase() + ".gif' /></center><br> <button  class='btn waves-effect waves-light right' onClick='window.location.reload()'> Jugar de Nuevo <i class='material-icons right'>send</i></button>");
-						console.log(pokemones[0].numero);
-						if(pokemones[0].numero == 1){
-							var audio = new Audio('audio/bulbasaur.mp3');
+						$("#resultado").html("<h1><center>Tu <img src='pokemon.png' style='width: 20%;' class='responsive-img' /> es "+ pokemones[0].nombre.toUpperCase() + " </center></h1><br><center><img class='responsive-img' style='width: 15%;'' src='http://www.pokestadium.com/sprites/xy/" + pokemones[0].nombre.toLowerCase() + ".gif' /></center><br> <button type='button'  class='btn waves-effect waves-light right' onClick='window.location.reload()'> Jugar de Nuevo <i class='material-icons right'>replay</i></button>");
+							var audio = new Audio('audio/'+ pokemones[0].nombre.toLowerCase() + '.mp3');
 							audio.play();
-						}
 					}
 					if(cantidad == 0){
 						$("#respuesta").html("");
 						$("#pregunta").html("");
 						alert("pokemon no encontrado");
-						$("#resultado").html('<input type="button" class="btn waves-effect waves-light" value="Jugar de Nuevo" onClick="window.location.reload()">');
+						$("#resultado").html("<button type='button'  class='btn waves-effect waves-light right' onClick='window.location.reload()'> Jugar de Nuevo <i class='material-icons right'>replay</i></button>");
 					}
 					if(cantidad>1){
-						$("#pregunta").html("<h3>" + preguntas[numero_pregunta].pregunta + "</h3>");
-						var opciones = Opciones(pokemones,numero_pregunta);
+						$("#pregunta").html("<h3 class='valign'>" + preguntas[numero_pregunta].pregunta + "</h3>");
 						numero_pregunta = numero_pregunta +1;
 						var opciones = Opciones(pokemones,numero_pregunta);
+						//console.log(opciones.length);
 						$("#respuesta").html(opciones);
 					}
 				}
 
 			}else{
 				$("#respuesta").html("");
-					$("#pregunta").html("");
-					alert("pokemon no encontrado");
-					$("#resultado").html('<input type="button" value="Jugar de Nuevo" class="btn waves-effect waves-light" onClick="window.location.reload()">');
+				$("#pregunta").html("");
+				alert("pokemon no encontrado");
+				$("#resultado").html("<button type='button'  class='btn waves-effect waves-light right' onClick='window.location.reload()'> Jugar de Nuevo <i class='material-icons right'>replay</i></button>");
 
 			}
 			
 		}else{
-			$("#pregunta").html("<h3>¿Que tipo de pokemon es?</h3>");
+			$("#pregunta").html("<h3 class='valign'>¿Que tipo de pokemon es?</h3>");
 				numero_pregunta = numero_pregunta +1;
 				var opciones = Opciones(pokemones,numero_pregunta);
 			$("#respuesta").html(opciones);
@@ -261,7 +265,7 @@
 		}
 		var html = "";
 		for(var i=0; i<opciones.length; i++){
-			html += ' <div class="col s3"><p><input name="filtro" type="radio" value="' + opciones[i] + '" id="' + opciones[i] + '" /><label for="' + opciones[i] + '">' + opciones[i] + '</label><p></div>';
+			html += ' <div class="col s6 m3 l3"><p class="flow-text"><input name="filtro" type="radio" value="' + opciones[i] + '" id="' + opciones[i] + '" /><label for="' + opciones[i] + '">' + opciones[i] + '</label><p></div>';
 		}
 		html +=  "<div class='col s12'><button class='btn waves-effect waves-light right' onClick='QuienEsEsePokemon("+ numero_pregunta+ ");'>Siguiente <i class='material-icons right'>send</i></button></div>";
 		return html;
