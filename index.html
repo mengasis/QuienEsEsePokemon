@@ -18,6 +18,70 @@
         <div id="pregunta"></div>
 		<div id="respuesta"></div>
 		<div id="resultado"></div>
+		<div id="formulario">
+			<form id="nuevopokemon" class="col s12">
+				<div class="row">
+			        <div class="input-field col s6">
+			          <input placeholder="Placeholder" id="nombre" type="nombre" class="validate">
+			          <label for="first_name">Nombre</label>
+			        </div>
+			    </div>
+			    <div class="row">
+			        <div class="input-field col s6">
+			          <input placeholder="Placeholder" id="tipo1" type="tipo1" class="validate">
+			          <label for="first_name">Tipo 1</label>
+			        </div>
+			    </div>
+			    <div class="row">
+			        <div class="input-field col s6">
+			          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+			          <label for="first_name">First Name</label>
+			        </div>
+			    </div>
+			    <div class="row">
+			        <div class="input-field col s6">
+			          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+			          <label for="first_name">First Name</label>
+			        </div>
+			    </div>
+			    <div class="row">
+			        <div class="input-field col s6">
+			          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+			          <label for="first_name">First Name</label>
+			        </div>
+			    </div>
+			    <div class="row">
+			        <div class="input-field col s6">
+			          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+			          <label for="first_name">First Name</label>
+			        </div>
+			    </div>
+			    <div class="row">
+			        <div class="input-field col s6">
+			          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+			          <label for="first_name">First Name</label>
+			        </div>
+			    </div>
+			    <div class="row">
+			        <div class="input-field col s6">
+			          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+			          <label for="first_name">First Name</label>
+			        </div>
+			    </div>
+			    <div class="row">
+			        <div class="input-field col s6">
+			          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+			          <label for="first_name">First Name</label>
+			        </div>
+			    </div>
+			    <div class="row">
+			        <div class="input-field col s6">
+			          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+			          <label for="first_name">First Name</label>
+			        </div>
+			    </div>
+			</form>	
+		</div>
 	</form>
 	</div>
  </div>
@@ -267,9 +331,13 @@
 		for(var i=0; i<opciones.length; i++){
 			html += ' <div class="col s6 m3 l3"><p class="flow-text"><input name="filtro" type="radio" value="' + opciones[i] + '" id="' + opciones[i] + '" /><label for="' + opciones[i] + '">' + opciones[i] + '</label><p></div>';
 		}
-		html +=  "<div class='col s12'><button class='btn waves-effect waves-light right' onClick='QuienEsEsePokemon("+ numero_pregunta+ ");'>Siguiente <i class='material-icons right'>send</i></button></div>";
+		html +=  "<div class='col s12'><button class='btn waves-effect waves-light left red' onClick='NoEstaOpcion("+ numero_pregunta+ ");'>No Existe Opción <i class='material-icons right'>youtube_searched_for</i></button><button class='btn waves-effect waves-light right' onClick='QuienEsEsePokemon("+ numero_pregunta+ ");'>Siguiente <i class='material-icons right'>send</i></button></div>";
 		return html;
 			
+	}
+
+	function NoEstaOpcion(){
+
 	}
 
 	$( document ).ready(function() {
