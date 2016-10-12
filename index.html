@@ -380,14 +380,14 @@
             $('select').material_select();
 
             $('#guardar').click(function() {
-                location.reload(true);
-                
+
+
                 $.ajax({
                     type: "POST",
                     url: url,
-                    data: $("#newForm").serialize(), // Adjuntar los campos del formulario enviado.
+                    data: $("#newForm").serialize(),
                     success: function(data) {
-                        $("#respuesta").html(data); // Mostrar la respuestas del script PHP.
+                        location.reload(true);
                     }
                 });
 
