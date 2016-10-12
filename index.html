@@ -24,14 +24,13 @@
                 <div id="pregunta"></div>
                 <div id="respuesta"></div>
                 <div id="resultado"></div>
+
+            </form>
                 <div id="formulario">
-                    <form id="nuevopokemon" class="col s12">
-
+                	<form id="newForm">
                         <div id="modal1" class="modal">
-                            <div class="modal-content">
+                            <div class="modal-content" id="contendido_modal">
                                 <h4>Ingrese los datos</h4>
-
-                                <form action="#" id="newForm">
                                     <div class="row">
                                         <div class="input-field col s6">
                                             <input placeholder="" name="nombre" id="nombre" type="text" class="validate">
@@ -50,11 +49,11 @@
                                         </div>
 
                                         <div class="input-field col s6">
-                                            <select id="form-evolucion" name="evoluciona">
-                               <option value="" disabled selected>Ingrese una opcion</option>
-                               <option value="1">Si</option>
-                               <option value="2">No</option>
-                             </select>
+                                            <select id="evolucion" name="evoluciona">
+				                               <option value="" disabled selected>Ingrese una opcion</option>
+				                               <option value="1">Si</option>
+				                               <option value="2">No</option>
+				                             </select>
                                             <label>¿Tiene evolucion?</label>
                                         </div>
                                     </div>
@@ -65,7 +64,7 @@
                                             <label>¿A que animal parece?</label>
                                         </div>
                                         <div class="input-field col s6">
-                                            <input placeholder="" id="form-transporte" name="accion" type="text" class="validate">
+                                            <input placeholder="" id="accion" name="accion" type="text" class="validate">
                                             <label>¿Como se transporta?</label>
                                         </div>
                                         <div class="input-field col s6">
@@ -102,7 +101,6 @@
                                             <label>¿Cual es su tipo de evolucion?</label>
                                         </div>
                                     </div>
-                                </form>
 
                             </div>
                             <div class="modal-footer">
@@ -111,7 +109,6 @@
                         </div>
                     </form>
                 </div>
-            </form>
         </div>
         <a class="waves-effect waves-light btn modal-trigger lime lighten-1" href="#modal1">Agregar <i class="material-icons right">add</i></a>
 
@@ -369,30 +366,22 @@
             for (var i = 0; i < opciones.length; i++) {
                 html += ' <div class="col s6 m3 l3"><p class="flow-text"><input name="filtro" type="radio" value="' + opciones[i] + '" id="' + opciones[i] + '" /><label for="' + opciones[i] + '">' + opciones[i] + '</label><p></div>';
             }
-            html += "<div class='col s12'><button class='btn waves-effect waves-light left red' onClick='NoEstaOpcion(" + numero_pregunta +
-                ");'>No Existe Opción <i class='material-icons right'>youtube_searched_for</i></button><button class='btn waves-effect waves-light right' onClick='QuienEsEsePokemon(" + numero_pregunta +
+            html += "<div class='col s12'><button class='btn waves-effect waves-light right' onClick='QuienEsEsePokemon(" + numero_pregunta +
                 ");'>Siguiente <i class='material-icons right'>send</i></button></div>";
             return html;
 
         }
 
-        function NoEstaOpcion() {
-
-        }
-
-        $(document).ready(function() {
-            QuienEsEsePokemon(0);
-            $('.modal-trigger').leanModal();
-            $('select').material_select();
-
-            $('#guardar').click(function() {
-
+        $('#guardar').click(function() {
+            	console.log($("#newForm").serialize());
 
                 $.ajax({
                     type: "POST",
                     url: 'guardapokemon.php',
+                    dataType:'json',
                     data: $("#newForm").serialize(),
                     success: function(data) {
+                        $("#contendido_modal").html(data);
                         location.reload(true);
                         console.log(data);
                     }
@@ -400,6 +389,13 @@
 
 
             });
+
+        $(document).ready(function() {
+            QuienEsEsePokemon(0);
+            $('.modal-trigger').leanModal();
+            $('select').material_select();
+
+
 
 
         });

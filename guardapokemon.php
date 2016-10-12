@@ -1,5 +1,4 @@
 <?php 
-
 $jsonstring = file_get_contents("pokemon_json.js");
 $tempArray = json_decode($jsonstring, true);
 
